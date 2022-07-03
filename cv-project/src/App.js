@@ -1,19 +1,27 @@
+import React from 'react'
 import './styles.css';
-import Selection from './components/Selection'
-import General from './components/General'
-import Education from './components/Education'
-import Experience from './components/Experience'
-import Skills from './components/Skills'
-import GeneralForm from './components/forms/GeneralForm'
+import Preview from './components/Preview'
+import GeneralForm from './components/GeneralForm';
+
 
 function App() {
-  
+  const [info, setInfo] = React.useState({
+    general: {
+      name: '',
+      phone: '', 
+      email: ''
+    }
+  })
+
+  console.log(info)
+
   return (
   <>
    <div className="selection">
-     <Selection />
+     <GeneralForm update={setInfo}/>
    </div> 
    <div className="preview">
+     <Preview info={info}/>
    </div>
   </>
   )
