@@ -6,6 +6,8 @@ import Education from './components/Education'
 import Experience from './components/Experience'
 import Skills from './components/Skills'
 
+import PrintPreview from './components/Print'
+
 function App() {
   const [info, setInfo] = React.useState({
     general: {
@@ -41,7 +43,7 @@ function App() {
 
    </div> 
    <div className="preview">
-     <Preview info={info}/>
+     <PrintPreview info={info}/>
    </div>
   </>
   )
