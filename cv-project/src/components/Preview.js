@@ -1,10 +1,13 @@
 import React from 'react'
 
 const Preview = (props) => {
-    const {general, education, experience} = props.info
+    const {general, education, experience, skills} = props.info
+    const styles = {
+        aspectRatio: `1/${Math.sqrt(2)}`
+    }
     
     return(
-        <div>
+        <div className="cv-preview" style={styles}>
             <h1>{general.name}</h1>
             <p>{general.email}</p>
             <p>{general.phone}</p>
@@ -23,6 +26,7 @@ const Preview = (props) => {
             <p>{experience.description}</p>
 
             <h2>Skills</h2>
+            <p>{skills.description}</p>
         </div>
     )
 }

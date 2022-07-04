@@ -47,7 +47,7 @@ const Experience = ({update}) => {
                 <label htmlFor="company">Company</label>
                 <input 
                     id="company" 
-                    placeholder="Enter title of qualification"
+                    placeholder="Enter company name"
                     onChange={(e) => setCompany(prevCompany => prevCompany = e.target.value)}
                 ></input>
             </div>

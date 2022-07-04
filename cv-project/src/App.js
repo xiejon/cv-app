@@ -10,9 +10,9 @@ import Skills from './components/Skills'
 function App() {
   const [info, setInfo] = React.useState({
     general: {
-      name: '',
-      phone: '', 
-      email: ''
+      name: 'Adam Smith',
+      phone: '(212) 414-2809', 
+      email: 'adamsmith@smith.com'
     },
     education: {
       name: '',
