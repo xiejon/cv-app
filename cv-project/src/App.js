@@ -1,7 +1,10 @@
 import React from 'react'
 import './styles.css';
 import Preview from './components/Preview'
-import GeneralForm from './components/GeneralForm';
+import General from './components/General'
+import Education from './components/Education'
+import Experience from './components/Experience'
+import Skills from './components/Skills'
 
 
 function App() {
@@ -10,15 +13,32 @@ function App() {
       name: '',
       phone: '', 
       email: ''
+    },
+    education: {
+      name: '',
+      degree: '',
+      startDate: '',
+      endDate: ''
+    }, 
+    experience: {
+      title: '',
+      employer: '',
+      startDate: '',
+      endDate: '',
+      description: ''
+    },
+    skills: {
+      description: ''
     }
   })
-
-  console.log(info)
 
   return (
   <>
    <div className="selection">
-     <GeneralForm update={setInfo}/>
+     <General update={setInfo} />
+     <Education update={setInfo} />
+     <Experience update={setInfo} />
+     <Skills update={setInfo} />
    </div> 
    <div className="preview">
      <Preview info={info}/>

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const GeneralForm = (props) => {
+const General = ({update}) => {
     const [isVisible, setIsVisible] = React.useState(false)
     const [name, setName] = React.useState('')
     const [email, setEmail] = React.useState('')
@@ -15,7 +15,7 @@ const GeneralForm = (props) => {
     }
 
     function updateInfo() {
-        props.update(prevInfo => {
+        update(prevInfo => {
             return {
                 ...prevInfo, 
                 general: {
@@ -29,7 +29,7 @@ const GeneralForm = (props) => {
 
     return(
         <>
-        <div onClick={changeVisible}>Personal Details</div>
+        <div className="category" onClick={changeVisible}>Personal Details</div>
         <div className="form" style={styles}>
             <div className="name">
                 <label htmlFor="name">Full name</label>
@@ -41,11 +41,19 @@ const GeneralForm = (props) => {
             </div>
             <div className="email">
                 <label htmlFor="email">Email</label>
-                <input id="email" placeholder="Enter email"></input>
+                <input 
+                    id="email" 
+                    placeholder="Enter email"
+                    onChange={(e) => setEmail(prevEmail => prevEmail = e.target.value)}
+                ></input>
             </div>
             <div className="phone">
                 <label htmlFor="phone">Phone</label>
-                <input id="phone" placeholder="Enter phone number"></input>
+                <input 
+                    id="phone" 
+                    placeholder="Enter phone number"
+                    onChange={(e) => setPhone(prevPhone => prevPhone = e.target.value)}
+                ></input>
             </div>
             <button onClick={updateInfo}>Enter</button>
         </div>
@@ -53,4 +61,4 @@ const GeneralForm = (props) => {
     )
 }
 
-export default GeneralForm
+export default General
