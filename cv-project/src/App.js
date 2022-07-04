@@ -6,7 +6,6 @@ import Education from './components/Education'
 import Experience from './components/Experience'
 import Skills from './components/Skills'
 
-
 function App() {
   const [info, setInfo] = React.useState({
     general: {
@@ -39,6 +38,7 @@ function App() {
      <Education update={setInfo} />
      <Experience update={setInfo} />
      <Skills update={setInfo} />
+
    </div> 
    <div className="preview">
      <Preview info={info}/>

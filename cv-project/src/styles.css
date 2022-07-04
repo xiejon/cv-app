@@ -24,15 +24,9 @@
 
 .preview {
   height: 100vh;
-  background-color: blue;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.cv-preview {
-  height: 400px;
-  background-color: white;
 }
 
 .category {
@@ -70,4 +64,25 @@ input {
   font-size: 1rem;
   border-radius: 10px;
   border: 1px solid black;
+}
+
+/* CV Preview  */
+.cv-preview {
+  height: 800px;
+  background-color: white;
+  box-shadow: 1px 0px 9px 0px black;
+}
+
+.cv-content {
+  padding: 30px;
+}
+
+.cv-preview h1 {
+  text-align: center;
+  padding-bottom: 13px;
+}
+
+.cv-email,
+.cv-phone {
+  text-align: center;
 }
