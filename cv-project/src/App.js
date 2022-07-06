@@ -15,12 +15,12 @@ function App() {
       phone: '(212) 414-2809', 
       email: 'adamsmith@smith.com'
     },
-    education: {
-      name: '',
-      degree: '',
-      startDate: '',
-      endDate: ''
-    }, 
+    education: [{}],
+      // name: '',
+      // degree: '',
+      // startDate: '',
+      // endDate: ''
+     
     experience: {
       title: '',
       employer: '',
