@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import uniqid from 'uniqid';
 import EducationItem from './EducationItem'
 
@@ -71,14 +71,8 @@ const Education = ({update}) => {
         <>
         <div className="category" onClick={toggleCategoryVisibility}>Education</div>
         <div className="list" style={listStyles}>
-
             {list}
-    
-            <button 
-            className="add-entry" 
-            onClick={toggleFormVisibility}
-            >+ Add Education
-        </button>
+            <button className="add-entry" onClick={toggleFormVisibility}>+ Add Education</button>
         </div>
         <form className="form" style={formStyles}>
             <div className="name">
@@ -91,7 +85,8 @@ const Education = ({update}) => {
                         return {
                             ...prevInput,
                             name: e.target.value
-                        }})}
+                        }})
+                    }
                 ></input>
             </div>
             <div className="degree">
@@ -104,7 +99,8 @@ const Education = ({update}) => {
                         return {
                             ...prevInput,
                             degree: e.target.value
-                        }})}
+                        }})
+                    }
                 ></input>
             </div>
             <div className="start-date">
@@ -117,7 +113,8 @@ const Education = ({update}) => {
                         return {
                             ...prevInput,
                             startDate: e.target.value
-                        }})}
+                        }})
+                    }
                 ></input>
             </div>
             <div className="end-date">
@@ -130,7 +127,8 @@ const Education = ({update}) => {
                         return {
                             ...prevInput,
                             endDate: e.target.value
-                        }})}
+                        }})
+                    }
                 ></input>
             </div>
             <button className="enter-btn" onClick={handleSubmit}>Enter</button>

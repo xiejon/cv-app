@@ -16,14 +16,7 @@ function App() {
       email: 'adamsmith@smith.com'
     },
     education: [],
-
-    experience: {
-      title: '',
-      employer: '',
-      startDate: '',
-      endDate: '',
-      description: ''
-    },
+    experience: [],
     skills: {
       description: ''
     }
