@@ -32,6 +32,7 @@ const EducationItem = ({setEntries, entry}) => {
                 <input 
                     id="name" 
                     placeholder="Enter school/university name"
+                    value={editFormState.name}
                     onChange={(e) => setEditFormState(prevInput => {
                         return {
                             ...prevInput,
@@ -44,6 +45,7 @@ const EducationItem = ({setEntries, entry}) => {
                 <input 
                     id="degree" 
                     placeholder="Enter title of qualification"
+                    value={editFormState.degree}
                     onChange={(e) => setEditFormState(prevInput => {
                         return {
                             ...prevInput,
@@ -56,7 +58,7 @@ const EducationItem = ({setEntries, entry}) => {
                 <input 
                     id="start-date" 
                     type="date"
-                    value={entry.startDate}
+                    value={editFormState.startDate}
                     onChange={(e) => setEditFormState(prevInput => {
                         return {
                             ...prevInput,
@@ -69,7 +71,7 @@ const EducationItem = ({setEntries, entry}) => {
                 <input 
                     id="end-date" 
                     type="date"
-                    value={entry.endDate}
+                    value={editFormState.endDate}
                     onChange={(e) => setEditFormState(prevInput => {
                         return {
                             ...prevInput,
@@ -77,7 +79,7 @@ const EducationItem = ({setEntries, entry}) => {
                         }})}
                 ></input>
             </div>
-            <button onClick={handleEdit}>Edit</button>
+            <button className="edit-btn" onClick={handleEdit}>Edit</button>
         </form>
         </>
     )

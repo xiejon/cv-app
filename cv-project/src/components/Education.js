@@ -128,7 +128,7 @@ const Education = ({update}) => {
                         }})}
                 ></input>
             </div>
-            <button onClick={handleSubmit}>Enter</button>
+            <button className="enter-btn" onClick={handleSubmit}>Enter</button>
         </form>
         </>
     )
