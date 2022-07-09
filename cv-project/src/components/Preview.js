@@ -10,12 +10,10 @@ const ComponentToPrint = React.forwardRef((props, ref) => {
         padding: "0"
     }
 
-    const ed = education.map(prevEducation => {
+    const educationSection = education.map(prevEducation => {
         if (!prevEducation.name) return
 
-        const startDate = prevEducation.startDate
-        const degree = prevEducation.degree
-        const name = prevEducation.name
+        const {name, degree, startDate} = prevEducation
 
         return (
         <p key={uniqid()}>
@@ -27,6 +25,21 @@ const ComponentToPrint = React.forwardRef((props, ref) => {
         )
     })
 
+    const experienceSection = experience.map(prevExperience => {
+        if (!prevExperience.title) return
+
+        const {title, company, startDate, endDate, desc} = prevExperience
+
+        return (
+        <p key={uniqid()}>
+            {startDate && startDate.substring(5, 7) + '/' + startDate.substring(0, 4)}
+            <i>{title}</i>
+            {company && title && ', '}
+            <b>{title}</b>
+        </p>
+        )
+    })
+
     return (
       <div className="print-container">
           <div className="cv-preview" ref={ref} style={styles}>
@@ -34,16 +47,13 @@ const ComponentToPrint = React.forwardRef((props, ref) => {
                 <h1>{general.name}</h1>
                 <p className="cv-email">{general.email}</p>
                 <p className="cv-phone">{general.phone}</p>
+
                 <h2>Education</h2>
-                
-                {ed}
+                {educationSection}
 
                 <h2>Experience</h2>
-                <p>{experience.title}</p>
-                <p>{experience.company}</p>
-                <p>{experience.startDate}</p>
-                <p>{experience.endDate}</p>
-                <p>{experience.description}</p>
+                {experienceSection}
+                
                 <h2>Skills</h2>
                 <p>{skills.description}</p>
             </div>
