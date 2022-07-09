@@ -59,6 +59,22 @@
   gap: 5px;
 }
 
+.list {
+  display: flex;
+  flex-direction: column; 
+}
+
+/* temporary  */
+.entry {
+  padding: 20px;
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+
+}
+
 input {
   padding: 10px;
   font-size: 1rem;

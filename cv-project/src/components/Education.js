@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react'
 import uniqid from 'uniqid';
+import EducationItem from './EducationItem'
 
 const Education = ({update}) => {
     const initialState = {
         name: '',
         degree: '',
         startDate: '',
-        endDate: '',
+        endDate: ''
     }
     const [currentInput, setCurrentInput] = React.useState(initialState)
     const [entries, setEntries] = React.useState([])
@@ -46,11 +47,14 @@ const Education = ({update}) => {
         display: isFormVisible ? "flex" : "none"
     }
 
-    const list = entries.map(prevEntry => {
+    const list = entries.map(entry => {
         return(
-            <div className="entry" key={uniqid()}>
-                <p>{prevEntry.name}</p>
-            </div>
+            <EducationItem 
+                entry={entry} 
+                setEntries={setEntries} 
+                setCurrentInput={setCurrentInput} 
+                key={uniqid()}
+            />
         )
     })
 
