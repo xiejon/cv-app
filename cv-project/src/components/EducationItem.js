@@ -21,6 +21,12 @@ const EducationItem = ({setEntries, entry}) => {
         }))
     }
 
+    function handleDelete(e) {
+        e.preventDefault() 
+
+        setEntries(prevEntries => prevEntries.filter(prevEntry => prevEntry !== entry))
+    }
+
     return(
         <>
         <div className="entry" key={uniqid()} onClick={() => setIsEditVisible(prevBool => !prevBool)}>
@@ -80,6 +86,7 @@ const EducationItem = ({setEntries, entry}) => {
                 ></input>
             </div>
             <button className="edit-btn" onClick={handleEdit}>Edit</button>
+            <button className="delete-btn" onClick={handleDelete}>Delete</button>
         </form>
         </>
     )
