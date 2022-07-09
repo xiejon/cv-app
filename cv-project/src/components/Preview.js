@@ -1,4 +1,5 @@
 import React from 'react'
+import uniqid from 'uniqid';
 
 const ComponentToPrint = React.forwardRef((props, ref) => {
 
@@ -10,18 +11,18 @@ const ComponentToPrint = React.forwardRef((props, ref) => {
     }
 
     const ed = education.map(prevEducation => {
-
-        console.log('render')
-
-        console.log(prevEducation)
-
         if (!prevEducation.name) return
+
+        const startDate = prevEducation.startDate
+        const degree = prevEducation.degree
+        const name = prevEducation.name
+
         return (
-        <p>
-            {prevEducation.startDate && prevEducation.startDate.substring(5, 7) + '/' + prevEducation.startDate.substring(0, 4)}
-            <i>{prevEducation.degree}</i>
-            {prevEducation.degree && prevEducation.name && ', '}
-            <b>{prevEducation.name}</b>
+        <p key={uniqid()}>
+            {startDate && startDate.substring(5, 7) + '/' + startDate.substring(0, 4)}
+            <i>{degree}</i>
+            {degree && name && ', '}
+            <b>{name}</b>
         </p>
         )
     })

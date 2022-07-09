@@ -1,16 +1,19 @@
 import React, { useEffect } from 'react'
+import uniqid from 'uniqid';
 
 const Education = ({update}) => {
-
-    const [currentInput, setCurrentInput] = React.useState({
+    const initialState = {
         name: '',
         degree: '',
         startDate: '',
         endDate: '',
-    })
+    }
+    const [currentInput, setCurrentInput] = React.useState(initialState)
     const [entries, setEntries] = React.useState([])
-    const [isVisible, setIsVisible] = React.useState(false)
+    const [isListVisible, setIsListVisible] = React.useState(false)
+    const [isFormVisible, setIsFormVisible] = React.useState(false)
 
+    // Update parent state only after component's state has finished updating
     React.useEffect(() => {
         update(prevInfo => {
             return {
@@ -20,32 +23,61 @@ const Education = ({update}) => {
         })
     }, [entries])
 
-    function updateInfo() {
+    function handleSubmit(e) {
+        e.preventDefault()
+        // Update entries state
         setEntries(prevEntries => {
             return [
                 ...prevEntries, 
                 currentInput
             ]
         })
+        // Clear form inputs 
+        setCurrentInput(prevInput => prevInput = initialState)
+        // Close form
+        setIsFormVisible(prevBool => !prevBool)
     }
 
-    function changeVisible() {
-        setIsVisible(prevBool => !prevBool)
+    const listStyles = {
+        display: isListVisible ? "flex" : "none"
     }
 
-    const styles = {
-        display: isVisible ? "flex" : "none"
+    const formStyles = {
+        display: isFormVisible ? "flex" : "none"
     }
+
+    const list = entries.map(prevEntry => {
+        return(
+            <div className="entry" key={uniqid()}>
+                <p>{prevEntry.name}</p>
+            </div>
+        )
+    })
 
     return(
         <>
-        <div className="category" onClick={changeVisible}>Education</div>
-        <div className="form" style={styles}>
+        <div 
+            className="category" 
+            onClick={() => setIsListVisible(prevBool => !prevBool)}
+            >Education
+        </div>
+        <div className="list" style={listStyles}>
+
+            {list}
+    
+            <button 
+            className="add-entry" 
+            onClick={() => setIsFormVisible(prevBool => !prevBool)}
+            >+ Add Education
+        </button>
+        </div>
+        <form className="form" style={formStyles}>
             <div className="name">
                 <label htmlFor="name">School name</label>
                 <input 
                     id="name" 
                     placeholder="Enter school/university name"
+                    value={currentInput.name}
                     onChange={(e) => setCurrentInput(prevInput => {
                         return {
                             ...prevInput,
@@ -58,6 +90,7 @@ const Education = ({update}) => {
                 <input 
                     id="degree" 
                     placeholder="Enter title of qualification"
+                    value={currentInput.degree}
                     onChange={(e) => setCurrentInput(prevInput => {
                         return {
                             ...prevInput,
@@ -70,6 +103,7 @@ const Education = ({update}) => {
                 <input 
                     id="start-date" 
                     type="date"
+                    value={currentInput.startDate}
                     onChange={(e) => setCurrentInput(prevInput => {
                         return {
                             ...prevInput,
@@ -82,6 +116,7 @@ const Education = ({update}) => {
                 <input 
                     id="end-date" 
                     type="date"
+                    value={currentInput.endDate}
                     onChange={(e) => setCurrentInput(prevInput => {
                         return {
                             ...prevInput,
@@ -89,8 +124,8 @@ const Education = ({update}) => {
                         }})}
                 ></input>
             </div>
-            <button onClick={updateInfo}>Enter</button>
-        </div>
+            <button onClick={handleSubmit}>Enter</button>
+        </form>
         </>
     )
 }
