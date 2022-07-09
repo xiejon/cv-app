@@ -39,6 +39,15 @@ const Education = ({update}) => {
         setIsFormVisible(prevBool => !prevBool)
     }
 
+    function toggleCategoryVisibility() {
+        setIsListVisible(prevBool => !prevBool)
+        setIsFormVisible(prevBool => prevBool = false)
+    }
+
+    function toggleFormVisibility() {
+        setIsFormVisible(prevBool => !prevBool)
+    }
+
     const listStyles = {
         display: isListVisible ? "flex" : "none"
     }
@@ -60,18 +69,14 @@ const Education = ({update}) => {
 
     return(
         <>
-        <div 
-            className="category" 
-            onClick={() => setIsListVisible(prevBool => !prevBool)}
-            >Education
-        </div>
+        <div className="category" onClick={toggleCategoryVisibility}>Education</div>
         <div className="list" style={listStyles}>
 
             {list}
     
             <button 
             className="add-entry" 
-            onClick={() => setIsFormVisible(prevBool => !prevBool)}
+            onClick={toggleFormVisibility}
             >+ Add Education
         </button>
         </div>

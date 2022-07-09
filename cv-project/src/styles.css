@@ -12,13 +12,16 @@
   font-family: "Inter";
 }
 
+body {
+  background-color: var(--gray);
+}
+
 #root {
   height: 100vh;
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
   justify-content: center;
-  background-color: var(--gray);
 }
 
 .selection {
@@ -106,7 +109,8 @@
 }
 
 .enter-btn, 
-.edit-btn {
+.edit-btn, 
+.delete-btn {
   padding: 5px;
   background-color: var(--pink);
   border: none;
