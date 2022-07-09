@@ -7,10 +7,6 @@ const General = ({update}) => {
         phone: ''
     })
     const [isVisible, setIsVisible] = React.useState(false)
-    
-    const styles = {
-        display: isVisible ? "flex" : "none"
-    }
 
     function changeVisible() {
         setIsVisible(prevBool => !prevBool)
@@ -25,6 +21,10 @@ const General = ({update}) => {
         })
     }
 
+    const styles = {
+        display: isVisible ? "flex" : "none"
+    }
+
     return(
         <>
         <div className="category" onClick={changeVisible}>Personal Details</div>
@@ -35,10 +35,7 @@ const General = ({update}) => {
                     id="name" 
                     placeholder="Enter your first and last name"
                     onChange={(e) => setCurrentState(prevState => {
-                        return {
-                            ...prevState,
-                            name: e.target.value
-                        }})
+                        return {...prevState, name: e.target.value}})
                     }
                 ></input>
             </div>
@@ -48,10 +45,7 @@ const General = ({update}) => {
                     id="email" 
                     placeholder="Enter email"
                     onChange={(e) => setCurrentState(prevState => {
-                        return {
-                            ...prevState,
-                            email: e.target.value
-                        }})
+                        return {...prevState, email: e.target.value}})
                     }
                 ></input>
             </div>
@@ -61,10 +55,7 @@ const General = ({update}) => {
                     id="phone" 
                     placeholder="Enter phone number"
                     onChange={(e) => setCurrentState(prevState => {
-                        return {
-                            ...prevState,
-                            phone: e.target.value
-                        }})
+                        return {...prevState, phone: e.target.value}})
                     }
                 ></input>
             </div>

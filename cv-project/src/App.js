@@ -17,9 +17,7 @@ function App() {
     },
     education: [],
     experience: [],
-    skills: {
-      description: ''
-    }
+    skills: []
   })
 
 

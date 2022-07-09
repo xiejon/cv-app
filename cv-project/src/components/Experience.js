@@ -83,10 +83,7 @@ const Experience = ({update}) => {
                     placeholder="Enter job title"
                     value={currentInput.title}
                     onChange={(e) => setCurrentInput(prevInput => {
-                        return {
-                            ...prevInput,
-                            title: e.target.value
-                        }})
+                        return {...prevInput, title: e.target.value}})
                     }
                 ></input>
             </div>
@@ -97,10 +94,7 @@ const Experience = ({update}) => {
                     placeholder="Enter company name"
                     value={currentInput.company}
                     onChange={(e) => setCurrentInput(prevInput => {
-                        return {
-                            ...prevInput,
-                            company: e.target.value
-                        }})
+                        return {...prevInput, company: e.target.value}})
                     }
                 ></input>
             </div>
@@ -111,10 +105,7 @@ const Experience = ({update}) => {
                     type="date"
                     value={currentInput.startDate}
                     onChange={(e) => setCurrentInput(prevInput => {
-                        return {
-                            ...prevInput,
-                            startDate: e.target.value
-                        }})
+                        return {...prevInput,startDate: e.target.value}})
                     }
                 ></input>
             </div>
@@ -125,10 +116,7 @@ const Experience = ({update}) => {
                     type="date"
                     value={currentInput.endDate}
                     onChange={(e) => setCurrentInput(prevInput => {
-                        return {
-                            ...prevInput,
-                            endDate: e.target.value
-                        }})
+                        return {...prevInput, endDate: e.target.value}})
                     }
                 ></input>
             </div>
@@ -138,10 +126,7 @@ const Experience = ({update}) => {
                     id="job-desc"
                     value={currentInput.desc}
                     onChange={(e) => setCurrentInput(prevInput => {
-                        return {
-                            ...prevInput,
-                            desc: e.target.value
-                        }})
+                        return {...prevInput, desc: e.target.value}})
                     }
                 ></input>
             </div>

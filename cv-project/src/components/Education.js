@@ -17,10 +17,7 @@ const Education = ({update}) => {
     // Update parent state only after component's state has finished updating
     React.useEffect(() => {
         update(prevInfo => {
-            return {
-                ...prevInfo, 
-                education: entries
-            }
+            return {...prevInfo, education: entries}
         })
     }, [entries])
 
@@ -28,10 +25,7 @@ const Education = ({update}) => {
         e.preventDefault()
         // Update entries state
         setEntries(prevEntries => {
-            return [
-                ...prevEntries, 
-                currentInput
-            ]
+            return [...prevEntries, currentInput]
         })
         // Clear form inputs 
         setCurrentInput(prevInput => prevInput = initialState)
@@ -82,10 +76,7 @@ const Education = ({update}) => {
                     placeholder="Enter school/university name"
                     value={currentInput.name}
                     onChange={(e) => setCurrentInput(prevInput => {
-                        return {
-                            ...prevInput,
-                            name: e.target.value
-                        }})
+                        return {...prevInput, name: e.target.value}})
                     }
                 ></input>
             </div>
@@ -96,10 +87,7 @@ const Education = ({update}) => {
                     placeholder="Enter title of qualification"
                     value={currentInput.degree}
                     onChange={(e) => setCurrentInput(prevInput => {
-                        return {
-                            ...prevInput,
-                            degree: e.target.value
-                        }})
+                        return {...prevInput, degree: e.target.value}})
                     }
                 ></input>
             </div>
@@ -110,10 +98,7 @@ const Education = ({update}) => {
                     type="date"
                     value={currentInput.startDate}
                     onChange={(e) => setCurrentInput(prevInput => {
-                        return {
-                            ...prevInput,
-                            startDate: e.target.value
-                        }})
+                        return {...prevInput, startDate: e.target.value}})
                     }
                 ></input>
             </div>
@@ -124,10 +109,7 @@ const Education = ({update}) => {
                     type="date"
                     value={currentInput.endDate}
                     onChange={(e) => setCurrentInput(prevInput => {
-                        return {
-                            ...prevInput,
-                            endDate: e.target.value
-                        }})
+                        return {...prevInput, endDate: e.target.value}})
                     }
                 ></input>
             </div>

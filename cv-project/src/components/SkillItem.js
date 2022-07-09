@@ -1,7 +1,7 @@
 import React from 'react'
 import uniqid from 'uniqid'
 
-const EducationItem = ({setEntries, entry}) => {
+const SkillItem = ({setEntries, entry}) => {
     const [isEditVisible, setIsEditVisible] = React.useState(false)
     const [editFormState, setEditFormState] = React.useState(entry)
 
@@ -30,43 +30,23 @@ const EducationItem = ({setEntries, entry}) => {
         </div>
         <form className="edit-form" style={editStyles}>
             <div className="name">
-                <label htmlFor="name">School name</label>
+                <label htmlFor="name">Skill name</label>
                 <input 
                     id="name" 
-                    placeholder="Enter school/university name"
+                    placeholder="Enter skill name"
                     value={editFormState.name}
                     onChange={(e) => setEditFormState(prevInput => {
                         return {...prevInput, name: e.target.value}})}
                 ></input>
             </div>
-            <div className="degree">
-                <label htmlFor="degree">Degree</label>
+            <div className="skill-desc">
+                <label htmlFor="skill-desc">Description</label>
                 <input 
-                    id="degree" 
-                    placeholder="Enter title of qualification"
-                    value={editFormState.degree}
+                    id="skill-desc"
+                    placeholder="Enter description of skill"
+                    value={editFormState.desc}
                     onChange={(e) => setEditFormState(prevInput => {
-                        return {...prevInput, degree: e.target.value}})}
-                ></input>
-            </div>
-            <div className="start-date">
-                <label htmlFor="start-date">Start date</label>
-                <input 
-                    id="start-date" 
-                    type="date"
-                    value={editFormState.startDate}
-                    onChange={(e) => setEditFormState(prevInput => {
-                        return {...prevInput, startDate: e.target.value}})}
-                ></input>
-            </div>
-            <div className="end-date">
-                <label htmlFor="end-date">End date</label>
-                <input 
-                    id="end-date" 
-                    type="date"
-                    value={editFormState.endDate}
-                    onChange={(e) => setEditFormState(prevInput => {
-                        return {...prevInput, endDate: e.target.value}})}
+                        return {...prevInput, desc: e.target.value}})}
                 ></input>
             </div>
             <button className="edit-btn" onClick={handleEdit}>Edit</button>
@@ -76,4 +56,4 @@ const EducationItem = ({setEntries, entry}) => {
     )
 }
 
-export default EducationItem
+export default SkillItem

@@ -40,6 +40,19 @@ const ComponentToPrint = React.forwardRef((props, ref) => {
         )
     })
 
+    const skillsSection = skills.map(prevSkill => {
+        if (!prevSkill.name) return
+
+        const {name, desc} = prevSkill
+
+        return (
+        <div className="skill" key={uniqid()}>
+            <p><b>{name}</b></p>
+            <p>{desc}</p>
+        </div>
+        )
+    })
+
     return (
       <div className="print-container">
           <div className="cv-preview" ref={ref} style={styles}>
@@ -55,7 +68,8 @@ const ComponentToPrint = React.forwardRef((props, ref) => {
                 {experienceSection}
                 
                 <h2>Skills</h2>
-                <p>{skills.description}</p>
+                {skillsSection}
+
             </div>
         </div>
       </div>

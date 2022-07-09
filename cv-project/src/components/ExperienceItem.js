@@ -13,11 +13,7 @@ const ExperienceItem = ({setEntries, entry}) => {
         e.preventDefault()
 
         setEntries(prevEntries => prevEntries.map(prevEntry => {
-            if (prevEntry === entry) {
-                return prevEntry = editFormState
-            } else {
-                return prevEntry
-            }
+            return prevEntry === entry ? prevEntry = editFormState : prevEntry
         }))
     }
 
@@ -40,10 +36,7 @@ const ExperienceItem = ({setEntries, entry}) => {
                     placeholder="Enter school/university name"
                     value={editFormState.name}
                     onChange={(e) => setEditFormState(prevInput => {
-                        return {
-                            ...prevInput,
-                            title: e.target.value
-                        }})}
+                        return {...prevInput, title: e.target.value}})}
                 ></input>
             </div>
             <div className="company">
@@ -53,10 +46,7 @@ const ExperienceItem = ({setEntries, entry}) => {
                     placeholder="Enter company name"
                     value={editFormState.company}
                     onChange={(e) => setEditFormState(prevInput => {
-                        return {
-                            ...prevInput,
-                            company: e.target.value
-                        }})}
+                        return {...prevInput, company: e.target.value}})}
                 ></input>
             </div>
             <div className="start-date">
@@ -66,10 +56,7 @@ const ExperienceItem = ({setEntries, entry}) => {
                     type="date"
                     value={editFormState.startDate}
                     onChange={(e) => setEditFormState(prevInput => {
-                        return {
-                            ...prevInput,
-                            startDate: e.target.value
-                        }})}
+                        return {...prevInput, startDate: e.target.value}})}
                 ></input>
             </div>
             <div className="end-date">
@@ -79,10 +66,7 @@ const ExperienceItem = ({setEntries, entry}) => {
                     type="date"
                     value={editFormState.endDate}
                     onChange={(e) => setEditFormState(prevInput => {
-                        return {
-                            ...prevInput,
-                            endDate: e.target.value
-                        }})}
+                        return {...prevInput, endDate: e.target.value}})}
                 ></input>
             </div>
             <div className="job-desc">
@@ -91,10 +75,7 @@ const ExperienceItem = ({setEntries, entry}) => {
                     id="job-desc"
                     value={editFormState.desc}
                     onChange={(e) => setEditFormState(prevInput => {
-                        return {
-                            ...prevInput,
-                            desc: e.target.value
-                        }})}
+                        return {...prevInput, desc: e.target.value}})}
                 ></input>
             </div>
             <button className="edit-btn" onClick={handleEdit}>Edit</button>
