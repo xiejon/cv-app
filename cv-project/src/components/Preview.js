@@ -2,18 +2,23 @@ import React from 'react'
 
 const ComponentToPrint = React.forwardRef((props, ref) => {
 
-    const {general, experience, skills} = props.info
+    const {general, experience, education, skills} = props.info
     const styles = {
         aspectRatio: `1/${Math.sqrt(2)}`,
         margin: "0", 
         padding: "0"
     }
 
-    const education = props.info.education.map(prevEducation => {
+    const ed = education.map(prevEducation => {
+
+        console.log('render')
+
+        console.log(prevEducation)
+
         if (!prevEducation.name) return
         return (
         <p>
-            {prevEducation.startDate.substring(5, 7)}/{prevEducation.startDate.substring(0, 4)}
+            {prevEducation.startDate && prevEducation.startDate.substring(5, 7) + '/' + prevEducation.startDate.substring(0, 4)}
             <i>{prevEducation.degree}</i>
             {prevEducation.degree && prevEducation.name && ', '}
             <b>{prevEducation.name}</b>
@@ -30,7 +35,7 @@ const ComponentToPrint = React.forwardRef((props, ref) => {
                 <p className="cv-phone">{general.phone}</p>
                 <h2>Education</h2>
                 
-                {education}
+                {ed}
 
                 <h2>Experience</h2>
                 <p>{experience.title}</p>

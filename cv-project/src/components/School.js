@@ -1,8 +1,6 @@
 import React from 'react'
 
-const School = () => {
-    const [isVisible, setIsVisible] = React.useState(false)
-
+const School = ({update, isVisible}) => {
     const [name, setName] = React.useState('')
     const [degree, setDegree] = React.useState('')
     const [startDate, setStartDate] = React.useState('')
@@ -12,9 +10,22 @@ const School = () => {
         display: isVisible ? "flex" : "none"
     }
 
-    function changeVisible() {
-        setIsVisible(prevBool => !prevBool)
-    }
+    // function updateInfo() {
+    //     update(prevInfo => {
+    //         return {
+    //             ...prevInfo, 
+    //             education: {
+
+    //                 // schools
+
+    //                 name: name,
+    //                 degree: degree,
+    //                 startDate: startDate,
+    //                 endDate: endDate
+    //             }
+    //         }
+    //     })
+    // }
 
     return( 
         <>
@@ -53,7 +64,6 @@ const School = () => {
             </div>
             <button onClick={console.log('hi')}>Enter</button>
         </div>
-        <div className="add-education" onClick={changeVisible}>+ Education</div>
         </>
     )
 }
