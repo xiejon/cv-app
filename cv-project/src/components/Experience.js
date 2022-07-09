@@ -86,7 +86,8 @@ const Experience = ({update}) => {
                         return {
                             ...prevInput,
                             title: e.target.value
-                        }})}
+                        }})
+                    }
                 ></input>
             </div>
             <div className="company">
