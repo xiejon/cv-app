@@ -23,16 +23,17 @@ function App() {
 
   return (
   <>
+   <div className="main">
     <div className="logo">
-      <h1>CV Generator</h1>
-    </div>
-   <div className="selection">
-     <General update={setInfo} />
-     <Education update={setInfo} />
-     <Experience update={setInfo} />
-     <Skills update={setInfo} />
-
-   </div> 
+        <h1>CV Generator</h1>
+      </div>
+     <div className="selection">
+       <General update={setInfo} />
+       <Education update={setInfo} />
+       <Experience update={setInfo} />
+       <Skills update={setInfo} />
+     </div>
+   </div>
    <div className="preview">
      <PrintPreview info={info}/>
    </div>

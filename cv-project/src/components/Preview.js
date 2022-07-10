@@ -22,11 +22,11 @@ const ComponentToPrint = React.forwardRef((props, ref) => {
                 — 
                 {endDate && endDate.substring(5, 7) + '/' + endDate.substring(0, 4)}
             </p>
-            <span>
-                <i>{degree}</i>
+            <p className="prev-title">
+                <b>{degree}</b>
                 {degree && name && ', '}
-                <b>{name}</b>
-            </span>
+                <i>{name}</i>
+            </p>
         </div>
         )
     })
@@ -38,12 +38,21 @@ const ComponentToPrint = React.forwardRef((props, ref) => {
 
         return (
         <div className="experience-item" key={uniqid()}>
-            <p>
-                {startDate && startDate.substring(5, 7) + '/' + startDate.substring(0, 4)}
-                <i>{title}</i>
-                {company && title && ', '}
-                <b>{company}</b>
+            <p className="date">
+                {startDate && startDate.substring(5, 7) + '/' + startDate.substring(0, 4)} 
+                — 
+                {endDate && endDate.substring(5, 7) + '/' + endDate.substring(0, 4)}
             </p>
+            <div className="experience-item-main">
+                <p className="prev-title">
+                    <b>{title}</b>
+                    {company && title && ', '}
+                    <i>{company}</i>
+                </p>
+                <p class="prev-desc">
+                    {desc}
+                </p>
+            </div>
         </div>
         )
     })
@@ -75,11 +84,15 @@ const ComponentToPrint = React.forwardRef((props, ref) => {
                     {educationSection}
                 </div>
 
-                <h2>Experience</h2>
-                {experienceSection}
+                <div className="experience">
+                    <h2>Experience</h2>
+                    {experienceSection}
+                </div>
                 
-                <h2>Skills</h2>
-                {skillsSection}
+                <div className="skills">
+                    <h2>Skills</h2>
+                    {skillsSection}
+                </div>
 
             </div>
         </div>
