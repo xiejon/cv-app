@@ -28,7 +28,7 @@ body {
 .main {
   height: 100%;
   display: grid;
-  grid-template-rows: 100px auto;
+  grid-template-rows: 100px auto 40px;
 }
 
 .logo {
@@ -247,4 +247,21 @@ button:hover {
 button:hover {
   background-color: var(--red);
   transition: 150ms;
+}
+
+/* github link */
+
+.footer {
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--red)
+}
+
+.footer svg {
+  fill: var(--red)
 }
