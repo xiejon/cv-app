@@ -11,39 +11,47 @@ const ComponentToPrint = React.forwardRef((props, ref) => {
     }
 
     const educationSection = education.map(prevEducation => {
-        if (!prevEducation.name) return
+        const {name, degree, startDate, endDate} = prevEducation
 
-        const {name, degree, startDate} = prevEducation
+        if (!name) return
 
         return (
-        <p key={uniqid()}>
-            {startDate && startDate.substring(5, 7) + '/' + startDate.substring(0, 4)}
-            <i>{degree}</i>
-            {degree && name && ', '}
-            <b>{name}</b>
-        </p>
+        <div className="education-item" key={uniqid()}>
+            <p className="date">
+                {startDate && startDate.substring(5, 7) + '/' + startDate.substring(0, 4)} 
+                — 
+                {endDate && endDate.substring(5, 7) + '/' + endDate.substring(0, 4)}
+            </p>
+            <span>
+                <i>{degree}</i>
+                {degree && name && ', '}
+                <b>{name}</b>
+            </span>
+        </div>
         )
     })
 
     const experienceSection = experience.map(prevExperience => {
-        if (!prevExperience.title) return
-
         const {title, company, startDate, endDate, desc} = prevExperience
 
+        if (!title) return
+
         return (
-        <p key={uniqid()}>
-            {startDate && startDate.substring(5, 7) + '/' + startDate.substring(0, 4)}
-            <i>{title}</i>
-            {company && title && ', '}
-            <b>{title}</b>
-        </p>
+        <div className="experience-item" key={uniqid()}>
+            <p>
+                {startDate && startDate.substring(5, 7) + '/' + startDate.substring(0, 4)}
+                <i>{title}</i>
+                {company && title && ', '}
+                <b>{company}</b>
+            </p>
+        </div>
         )
     })
 
     const skillsSection = skills.map(prevSkill => {
-        if (!prevSkill.name) return
-
         const {name, desc} = prevSkill
+
+        if (!name) return
 
         return (
         <div className="skill" key={uniqid()}>
@@ -61,8 +69,11 @@ const ComponentToPrint = React.forwardRef((props, ref) => {
                 <p className="cv-email">{general.email}</p>
                 <p className="cv-phone">{general.phone}</p>
 
-                <h2>Education</h2>
-                {educationSection}
+                
+                <div className="education">
+                    <h2>Education</h2>
+                    {educationSection}
+                </div>
 
                 <h2>Experience</h2>
                 {experienceSection}

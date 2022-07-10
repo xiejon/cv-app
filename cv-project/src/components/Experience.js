@@ -122,13 +122,15 @@ const Experience = ({update}) => {
             </div>
             <div className="job-desc">
                 <label htmlFor="job-desc">Description</label>
-                <input 
+                <textarea 
                     id="job-desc"
+                    rows="4"
+                    placeholder="Enter job description"
                     value={currentInput.desc}
                     onChange={(e) => setCurrentInput(prevInput => {
                         return {...prevInput, desc: e.target.value}})
                     }
-                ></input>
+                ></textarea>
             </div>
             <button className="enter-btn" onClick={handleSubmit}>Enter</button>
         </div>

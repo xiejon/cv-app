@@ -23,6 +23,9 @@ function App() {
 
   return (
   <>
+    <div className="logo">
+      <h1>CV Generator</h1>
+    </div>
    <div className="selection">
      <General update={setInfo} />
      <Education update={setInfo} />

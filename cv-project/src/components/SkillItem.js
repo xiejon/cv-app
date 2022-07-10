@@ -41,13 +41,14 @@ const SkillItem = ({setEntries, entry}) => {
             </div>
             <div className="skill-desc">
                 <label htmlFor="skill-desc">Description</label>
-                <input 
+                <textarea 
                     id="skill-desc"
+                    rows="2"
                     placeholder="Enter description of skill"
                     value={editFormState.desc}
                     onChange={(e) => setEditFormState(prevInput => {
                         return {...prevInput, desc: e.target.value}})}
-                ></input>
+                ></textarea>
             </div>
             <button className="edit-btn" onClick={handleEdit}>Edit</button>
             <button className="delete-btn" onClick={handleDelete}>Delete</button>

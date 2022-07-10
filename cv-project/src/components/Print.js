@@ -12,7 +12,7 @@ const PrintPreview = (props) => {
     return (
       <div className="print-preview">
         <ComponentToPrint ref={componentRef} info={props.info}/>
-        <button onClick={handlePrint}>Print this out!</button>
+        <button className="print-btn" onClick={handlePrint}>Print this out!</button>
       </div>
     );
   };

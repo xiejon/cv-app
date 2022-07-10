@@ -33,7 +33,7 @@ const ExperienceItem = ({setEntries, entry}) => {
                 <label htmlFor="title">Job title</label>
                 <input 
                     id="title" 
-                    placeholder="Enter school/university name"
+                    placeholder="Enter job title"
                     value={editFormState.name}
                     onChange={(e) => setEditFormState(prevInput => {
                         return {...prevInput, title: e.target.value}})}
@@ -71,12 +71,14 @@ const ExperienceItem = ({setEntries, entry}) => {
             </div>
             <div className="job-desc">
                 <label htmlFor="job-desc">Description</label>
-                <input 
+                <textarea 
                     id="job-desc"
+                    rows="4"
+                    placeholder="Enter job description"
                     value={editFormState.desc}
                     onChange={(e) => setEditFormState(prevInput => {
                         return {...prevInput, desc: e.target.value}})}
-                ></input>
+                ></textarea>
             </div>
             <button className="edit-btn" onClick={handleEdit}>Edit</button>
             <button className="delete-btn" onClick={handleDelete}>Delete</button>

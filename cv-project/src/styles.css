@@ -17,11 +17,20 @@ body {
 }
 
 #root {
-  height: 100vh;
+  min-height: 1000px;
+  min-width: 1070px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
   justify-content: center;
+}
+
+.logo {
+  position: absolute;
+  top: 2%;
+  left: 2%;
+  font-size: 1.5rem;
+  color: var(--red)
 }
 
 .selection {
@@ -88,7 +97,7 @@ body {
 
 .entry {
   padding: 15px;
-  width: 100%;
+  width: 70%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -126,7 +135,8 @@ label {
   color: var(--pink)
 }
 
-input {
+input, 
+textarea {
   padding: 10px;
   font-size: 1rem;
   border-radius: 10px;
@@ -136,19 +146,25 @@ input {
 }
 
 /* CV Preview  */
+.preview {
+
+}
+
 .cv-preview {
-  height: 800px;
+  height: 1000px;
   background-color: white;
   box-shadow: 1px 0px 20px 0px var(--raisin-black);
 }
 
 .cv-content {
   padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .cv-preview h1 {
   text-align: center;
-  padding-bottom: 13px;
 }
 
 .cv-email,
@@ -156,7 +172,23 @@ input {
   text-align: center;
 }
 
-.preview > div {
+.education {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem
+}
+
+.education-item {
+  display: grid;
+  grid-template-columns: 1fr 6fr;
+}
+
+.date {
+  width: 100px;
+}
+
+.print-btn {
+  
 }
 
 @media print {

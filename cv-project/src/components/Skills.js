@@ -86,14 +86,15 @@ const Skills = ({update}) => {
             </div>
             <div className="skill-desc">
                 <label htmlFor="skill-desc">Description</label>
-                <input 
+                <textarea 
                     id="skill-desc"
+                    rows="2"
                     placeholder="Enter description of skill"
                     value={currentInput.desc}
                     onChange={(e) => setCurrentInput(prevInput => {
                         return {...prevInput, desc: e.target.value}})
                     }
-                ></input>
+                ></textarea>
             </div>
             <button className="enter-btn" onClick={handleSubmit}>Enter</button>
         </div>

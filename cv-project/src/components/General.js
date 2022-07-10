@@ -59,7 +59,7 @@ const General = ({update}) => {
                     }
                 ></input>
             </div>
-            <button onClick={updateInfo}>Enter</button>
+            <button className="enter-btn" onClick={updateInfo}>Enter</button>
         </div>
         </>
     )
